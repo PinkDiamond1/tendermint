@@ -1,0 +1,693 @@
+json.Marshal:
+- loc: +48 abci/example/kvstore/kvstore.go
+  type: STD
+  uses:
+    kvstore.State:
+      https://github.com/tendermint/tendermint/blob/master/abci/example/kvstore/kvstore.go#L23
+    std: [int64, '[]byte']
+
+- loc: +16 abci/types/messages_test.go
+  type: STD
+  uses:
+    ResponseDeliverTx:
+      https://github.com/tendermint/tendermint/blob/master/abci/types/types.pb.go#L1955
+      PROTO
+
+- loc: +33 abci/types/messages_test.go
+  type: STD
+  uses:
+    ResponseDeliverTx:
+      https://github.com/tendermint/tendermint/blob/master/abci/types/types.pb.go#L1955
+      PROTO
+
+- loc: +98 crypto/sr25519/privkey.go
+  type: STD
+  uses:
+    std: ['[]byte']
+
+- loc: +82 crypto/sr25519/sr25519_test.go
+  type: STD
+  uses:
+    sr25519.PrivKey:
+      https://github.com/tendermint/tendermint/blob/master/crypto/sr25519/privkey.go#L27
+      custom
+
+- loc: +108 libs/bits/bit_array_test.go
+  type: STD
+  uses:
+    ref: [BitArray]
+
+- loc: +249 libs/bits/bit_array_test.go
+  type: STD
+  uses:
+    ref: [BitArray]
+
+- loc: +49 libs/bytes/bytes_test.go
+  type: STD
+  uses:
+    TestStruct: https://github.com/tendermint/tendermint/blob/master/libs/bytes/bytes_test.go#L28
+    std: ['[]byte']
+    ref: [HexBytes]
+
+- loc: +243 libs/json/encoder.go
+  type: STD
+  uses:
+    std: ['interface{}']
+
+- loc: +99 libs/json/encoder_test.go
+  type: STD
+  uses:
+    std: ['interface{}']
+
+- loc: +198 rpc/jsonrpc/client/http_json_client.go
+  type: STD
+  uses:
+    RPCRequest:
+      https://github.com/tendermint/tendermint/blob/master/rpc/jsonrpc/types/types.go#L51
+      custom
+
+- loc: +247 rpc/jsonrpc/client/http_json_client.go
+  type: STD
+  uses:
+    ref: [RPCRequest]
+
+- loc: +60 rpc/jsonrpc/client/ws_client_test.go
+  type: STD
+  uses:
+    RPCResponse: https://github.com/tendermint/tendermint/blob/master/rpc/jsonrpc/types/types.go#L154
+    std: [int, string, json.RawMessage]
+
+- loc: +111 rpc/jsonrpc/types/types.go
+  type: STD
+  uses:
+    std: ['map[string]json.RawMessage']
+
+- loc: +129 rpc/jsonrpc/types/types.go
+  type: STD
+  uses:
+    std: ['[]interface{}']
+
+- loc: +37 rpc/jsonrpc/types/types_test.go
+  type: STD
+  uses:
+    ref: [RPCResponse]
+
+- loc: +42 rpc/jsonrpc/types/types_test.go
+  type: STD
+  uses:
+    ref: [RPCResponse]
+
+- loc: +47 rpc/jsonrpc/types/types_test.go
+  type: STD
+  uses:
+    ref: [RPCResponse]
+
+- loc: +69 test/e2e/app/snapshots.go
+  type: STD
+  uses:
+    Snapshot:
+      https://github.com/tendermint/tendermint/blob/master/abci/types/types.pb.go#L2841
+      PROTO
+
+- loc: +77 test/e2e/app/state.go
+  type: STD
+  uses:
+    e2e.State: https://github.com/tendermint/tendermint/blob/master/test/e2e/app/state.go#L19
+    std: [uint64, '[]byte', string]
+
+- loc: +102 test/e2e/app/state.go
+  type: STD
+  uses:
+    std: [string]
+
+- loc: +93 test/e2e/runner/benchmark.go
+  type: STD
+  uses:
+    std: [string, float64, int64, int]
+
+- loc: +225 test/e2e/runner/setup.go
+  type: STD
+  uses:
+    std: [string]
+
+tmjson.Marshal:
+- loc: +23 cmd/tendermint/commands/gen_node_key.go
+  type: TM
+  uses:
+    NodeKey: https://github.com/tendermint/tendermint/blob/master/types/node_key.go#L18
+    NodeID:
+      https://github.com/tendermint/tendermint/blob/master/types/node_id.go#L22
+      string
+    PrivKey:
+      https://github.com/tendermint/tendermint/blob/master/crypto/crypto.go#L30
+      interface
+
+- loc: +32 cmd/tendermint/commands/gen_validator.go
+  type: TM
+  uses:
+    std: [int64, int32, int8, '[]byte']
+    FilePV: https://github.com/tendermint/tendermint/blob/master/privval/file.go#L145
+    FilePVKey: https://github.com/tendermint/tendermint/blob/master/privval/file.go#L49
+    Address:
+      https://github.com/tendermint/tendermint/blob/master/crypto/crypto.go#L16
+      HexBytes
+    PubKey:
+      https://github.com/tendermint/tendermint/blob/master/crypto/crypto.go#L22
+      interface
+    ref: [PrivKey]
+    FilePVLastSignState: https://github.com/tendermint/tendermint/blob/master/privval/file.go#L74
+    HexBytes:
+      https://github.com/tendermint/tendermint/blob/master/libs/bytes/bytes.go#L12
+      []byte
+      custom
+
+- loc: +73 cmd/tendermint/commands/show_validator.go
+  type: TM
+  uses:
+    ref: [PubKey]
+
+- loc: +100 internal/consensus/peer_state.go
+  types: TM
+  uses:
+    PeerState: https://github.com/tendermint/tendermint/blob/master/internal/consensus/peer_state.go#L38
+    PeerRoundState: https://github.com/tendermint/tendermint/blob/master/internal/consensus/types/peer_round_state.go#L15
+    std: [int64, int32, uint32, int8, time.Time, bool, int]
+    PartSetHeader: https://github.com/tendermint/tendermint/blob/master/types/part_set.go#L94
+    ref: [HexBytes]
+    BitArray:
+      https://github.com/tendermint/tendermint/blob/master/libs/bits/bit_array.go#L18
+      custom
+    peerStateStats: https://github.com/tendermint/tendermint/blob/master/internal/consensus/peer_state.go#L25
+
+- loc: +256 internal/consensus/state.go
+  type: TM
+  uses:
+    RoundState: https://github.com/tendermint/tendermint/blob/master/internal/consensus/types/round_state.go#L67
+    std: [int64, int32, uint8, time.Time, bool, int64]
+    ValidatorSet: https://github.com/tendermint/tendermint/blob/master/types/validator_set.go#L51
+    Validator: https://github.com/tendermint/tendermint/blob/master/types/validator.go#L17
+    ref: [PubKey, HexBytes]
+
+- loc: +263 internal/consensus/state.go
+  type: TM
+  uses:
+    RoundStateSimple: https://github.com/tendermint/tendermint/blob/master/internal/consensus/types/round_state.go#L108
+    std: [string, time.Time, json.RawMessage, int32]
+    ref: [HexBytes]
+    ValidatorInfo: https://github.com/tendermint/tendermint/blob/master/types/events.go#L149
+
+- loc: +240 internal/consensus/types/height_vote_set.go
+  type: TM
+  uses:
+    roundVotes: https://github.com/tendermint/tendermint/blob/master/internal/consensus/types/height_vote_set.go#L260
+    std: [int32, string]
+
+- loc: +154 internal/rpc/core/env.go
+  type: TM
+  uses:
+    GenesisDoc: https://github.com/tendermint/tendermint/blob/master/types/genesis.go#L37
+    std: [time.Time, string, int64, json.RawMessage, time.Duration, uint64]
+    ref: [HexBytes]
+    ConsensusParams: https://github.com/tendermint/tendermint/blob/master/types/params.go#L39
+    BlockParams: https://github.com/tendermint/tendermint/blob/master/types/params.go#L56
+    EvidenceParams: https://github.com/tendermint/tendermint/blob/master/types/params.go#L62
+    ValidatorParams: https://github.com/tendermint/tendermint/blob/master/types/params.go#L70
+    VersionParams: https://github.com/tendermint/tendermint/blob/master/types/params.go#L74
+
+- loc: +117 privval/file_test.go
+  type: TM
+  uses:
+    ref: [FilePVLastSignState]
+
+- loc: +154 privval/file_test.go
+  type: TM
+  uses:
+    ref: [FilePVKey]
+
+- loc: +104 rpc/jsonrpc/types/types.go
+  type: TM
+  uses:
+    std: ['interface{}']
+
+- loc: +122 rpc/jsonrpc/types/types.go
+  type: tm
+  uses:
+    std: ['interface{}']
+
+- loc: +192 rpc/jsonrpc/types/types.go
+  type: TM
+  uses:
+    std: ['interface{}']
+
+- loc: +40 scripts/wal2json/main.go
+  type: TM
+  uses:
+    TimedWALMessage: https://github.com/tendermint/tendermint/blob/master/internal/consensus/wal.go#L36
+    std: [time.Time, 'interface{}']
+
+- loc: +85 types/genesis_test.go
+  type: TM
+  uses:
+    ref: [GenesisDoc]
+
+- loc: +97 types/genesis_test.go
+  type: TM
+  uses:
+    ref: [GenesisDoc]
+
+- loc: +104 types/genesis_test.go
+  type: TM
+  uses:
+    ref: [GenesisDoc]
+
+- loc: +32 types/node_key.go
+  type: TM
+  uses:
+    ref: [NodeKey]
+
+- loc: +368 types/part_set.go
+  type: TM
+  uses:
+    std: [string]
+    ref: [BitArray]
+
+- loc: +498 types/vote_set.go
+  type: TM
+  uses:
+    VoteSetJSON: https://github.com/tendermint/tendermint/blob/master/types/vote_set.go#L508
+    std: [string]
+    BlockID: https://github.com/tendermint/tendermint/blob/master/types/block.go#L1173
+    ref: [HexBytes, PartSetHeader]
+
+'json.MarshalIndent':
+- loc: +108 cmd/tendermint/commands/debug/io.go
+  type: STD
+  uses:
+    std: ['interface{}']
+
+- loc: +149 rpc/jsonrpc/server/http_server.go
+  type: STD
+  uses:
+    ref: [RPCResponse]
+
+- loc: +180 rpc/jsonrpc/server/http_server.go
+  type: STD
+  uses:
+    std: ['interface{}']
+    ref: [RPCResponse]
+
+- loc: +457 rpc/jsonrpc/server/ws_handler.go
+  type: STD
+  uses:
+    ref: [RPCResponse]
+
+- loc: +344 rpc/jsonrpc/server/ws_handler.go
+  type: STD
+  uses:
+    ref: [RPCRequest]
+
+tmjson.MarshalIndent:
+- loc: +64 privval/file.go
+  type: TM
+  uses:
+    ref: [FilePVKey]
+
+- loc: +131 privval/file.go
+  type: TM
+  uses:
+    ref: [FilePVLastSignState]
+
+- loc: +49 types/genesis.go
+  type: TM
+  uses:
+    ref: [GenesisDoc]
+
+json.Unmarshal:
+- loc: +40 abci/example/kvstore/kvstore.go
+  type: STD
+  uses:
+    ref: [kvstore.State]
+
+- loc: +37 abci/types/messages_test.go
+  type: STD
+  uses:
+    ResponseCheckTx:
+      https://github.com/tendermint/tendermint/blob/master/abci/types/types.pb.go#L1829
+      PROTO
+
+- loc: +108 crypto/sr25519/privkey.go
+  type: STD
+  uses:
+    std: ['[]byte']
+
+- loc: +91 crypto/sr25519/sr25519_test.go
+  type: STD
+  uses:
+    ref: [sr25519.PrivKey]
+
+- loc: +101 libs/bits/bit_array_test.go
+  type: STD
+  uses:
+    ref: [BitArray]
+
+- loc: +105 libs/bits/bit_array_test.go
+  type: STD
+  uses:
+    ref: [BitArray]
+
+- loc: +141 libs/bits/bit_array_test.go
+  type: STD
+  uses:
+    ref: [BitArray]
+
+- loc: +255 libs/bits/bit_array_test.go
+  type: STD
+  uses:
+    ref: [BitArray]
+
+- loc: +59 libs/bytes/bytes_test.go
+  type: STD
+  uses:
+    ref: [TestStruct]
+
+- loc: +111 libs/json/decoder.go
+  type: STD
+  uses:
+    std: ['[]byte']
+
+- loc: +126 libs/json/decoder.go
+  type: STD
+  uses:
+    std: [json.RawMessage]
+
+- loc: +157 libs/json/decoder.go
+  type: STD
+  uses:
+    std: ['map[string]json.RawMessage']
+
+- loc: +184 libs/json/decoder.go
+  type: STD
+  uses:
+    std: ['map[string]json.RawMessage']
+
+- loc: +211 libs/json/decoder.go
+  type: STD
+  uses:
+    interfaceWrapper: https://github.com/tendermint/tendermint/blob/master/libs/json/decoder.go#L275
+    std: [string, json.RawMessage]
+
+- loc: +268 libs/json/decoder.go
+  type: STD
+  uses:
+    std: ['interface{}']
+
+- loc: +139 libs/json/decoder_test.go
+  type: STD
+  uses:
+    std: ['interface{}']
+
+- loc: +21 rpc/jsonrpc/client/decode.go
+  type: STD
+  uses:
+    ref: [RPCResponse]
+
+- loc: +51 rpc/jsonrpc/client/decode.go
+  type: STD
+  uses:
+    ref: [RPCResponse]
+
+- loc: +482 rpc/jsonrpc/client/ws_client.go
+  type: STD
+  uses:
+    ref: [RPCResponse]
+
+- loc: +46 rpc/jsonrpc/client/ws_client_test.go
+  type: STD
+  uses:
+    ref: [RPCRequest]
+
+- loc: +223 rpc/jsonrpc/jsonrpc_test.go
+  type: STD
+  uses:
+    ResultEcho: https://github.com/tendermint/tendermint/blob/master/rpc/jsonrpc/jsonrpc_test.go#L38
+    std: [string]
+
+- loc: +245 rpc/jsonrpc/jsonrpc_test.go
+  type: STD
+  uses:
+    ResultEchoBytes: https://github.com/tendermint/tendermint/blob/master/rpc/jsonrpc/jsonrpc_test.go#L46
+    std: ['[]byte']
+
+- loc: +322 rpc/jsonrpc/jsonrpc_test.go
+  type: STD
+  uses:
+    ref: [ResultEcho]
+
+- loc: +353 rpc/jsonrpc/jsonrpc_test.go
+  type: STD
+  uses:
+    ref: [ResultEcho]
+
+- loc: +47 rpc/jsonrpc/server/http_json_handler.go
+  type: STD
+  uses:
+    ref: [RPCRequest]
+
+- loc: +50 rpc/jsonrpc/server/http_json_handler.go
+  type: STD
+  uses:
+    ref: [RPCRequest]
+
+- loc: +224 rpc/jsonrpc/server/http_json_handler.go
+  type: STD
+  uses:
+    std: ['map[string]json.RawMessage']
+
+- loc: +231 rpc/jsonrpc/server/http_json_handler.go
+  type: STD
+  uses:
+    std: [json.RawMessage]
+
+- loc: +75 rpc/jsonrpc/server/http_json_handler_test.go
+  type: STD
+  uses:
+    ref: [RPCResponse]
+
+- loc: +123 rpc/jsonrpc/server/http_json_handler_test.go
+  type: STD
+  uses:
+    ref: [RPCResponse]
+
+- loc: +190 rpc/jsonrpc/server/http_json_handler_test.go
+  type: STD
+  uses:
+    ref: [RPCResponse]
+
+- loc: +199 rpc/jsonrpc/server/http_json_handler_test.go
+  type: STD
+  uses:
+    ref: [RPCResponse]
+
+- loc: +21 rpc/jsonrpc/server/parse_test.go
+  type: STD
+  uses:
+    std: ['map[string]interface{}']
+
+- loc: +39 rpc/jsonrpc/server/parse_test.go
+  type: STD
+  uses:
+    std: ['map[string]interface{}', int]
+    ref: [HexBytes]
+
+- loc: +61 rpc/jsonrpc/server/parse_test.go
+  type: STD
+  uses:
+    std: ['interface{}']
+
+- loc: +78 rpc/jsonrpc/server/parse_test.go
+  type: STD
+  uses:
+    std: [int]
+    ref: [HexBytes]
+
+- loc: +87 rpc/jsonrpc/server/parse_test.go
+  type: STD
+  uses:
+    std: ['map[string]*json.RawMessage']
+
+- loc: +90 rpc/jsonrpc/server/parse_test.go
+  type: STD
+  uses:
+    std: [int]
+
+- loc: +96 rpc/jsonrpc/server/parse_test.go
+  type: STD
+  uses:
+    ref: [HexBytes]
+
+- loc: +108 rpc/jsonrpc/server/parse_test.go
+  type: STD
+  uses:
+    std: ['[]interface{}']
+
+- loc: +123 rpc/jsonrpc/server/parse_test.go
+  type: STD
+  uses:
+    std: ['[]interface{}']
+
+- loc: +67 rpc/jsonrpc/types/types.go
+  type: STD
+  uses:
+    std: [string, 'interface{}', json.RawMessage]
+
+- loc: +169 rpc/jsonrpc/types/types.go
+  type: STD
+  uses:
+    std: [string, 'interface{}', json.RawMessage, int]
+    RPCError: https://github.com/tendermint/tendermint/blob/master/rpc/jsonrpc/types/types.go#L140
+
+- loc: +56 rpc/jsonrpc/types/types_test.go
+  type: STD
+  uses:
+    ref: [RPCResponse]
+
+- loc: +66 rpc/jsonrpc/types/types_test.go
+  type: STD
+  uses:
+    ref: [RPCResponse]
+
+- loc: +57 test/e2e/app/snapshots.go
+  type: STD
+  uses:
+    ref: [Snapshot]
+
+- loc: +67 test/e2e/app/state.go
+  type: STD
+  uses:
+    ref: [e2e.State]
+
+- loc: +111 test/e2e/app/state.go
+  type: STD
+  uses:
+    std: ['map[string]string']
+
+- loc: +166 test/e2e/app/state.go
+  type: STD
+  uses:
+    ref: [e2e.State]
+
+- loc: +48 test/fuzz/rpc/jsonrpc/server/handler.go
+  type: STD
+  uses:
+    ref: [RPCResponse]
+
+- loc: +54 test/fuzz/rpc/jsonrpc/server/handler.go
+  type: STD
+  uses:
+    ref: [RPCResponse]
+
+- loc: +62 test/fuzz/rpc/jsonrpc/server/handler.go
+  type: STD
+  uses:
+    std: ['[]interface{}']
+
+tmjson.Unmarshal:
+- loc: +273 config/config.go
+  type: TM
+  uses:
+    ref: [NodeKey]
+
+- loc: +31 light/mbt/driver_test.go
+  type: TM
+  uses:
+    mbt.testCase: https://github.com/tendermint/tendermint/blob/master/light/mbt/driver_test.go#L97
+    std: [string, uint64, time.Time]
+    ref: [ValidatorSet, HexBytes, BlockID]
+    SignedHeader: https://github.com/tendermint/tendermint/blob/master/types/light.go#L117
+    Header: https://github.com/tendermint/tendermint/blob/master/types/block.go#L333
+    version.Consensus: https://github.com/tendermint/tendermint/blob/master/version/version.go#L30
+
+- loc: +201 privval/file.go
+  type: TM
+  uses:
+    ref: [FilePVKey]
+
+- loc: +218 privval/file.go
+  type: TM
+  uses:
+    ref: [FilePVLastSignState]
+
+- loc: +108 privval/file_test.go
+  type: TM
+  useS:
+    ref: [FilePVLastSignState]
+
+- loc: +145 privval/file_test.go
+  type: TM
+  uses:
+    ref: [FilePVKey]
+
+- loc: +242 rpc/client/http/ws.go
+  type: TM
+  uses:
+    ResultEvent: https://github.com/tendermint/tendermint/blob/master/rpc/coretypes/responses.go#L277
+    TMEventData: https://github.com/tendermint/tendermint/blob/master/types/events.go#L93
+    std: [string, 'interface{}']
+    Event:
+      https://github.com/tendermint/tendermint/blob/master/abci/types/types.pb.go#L2415
+      PROTO
+
+- loc: +292 rpc/client/rpc_test.go
+  type: TM
+  uses:
+    ref: [GenesisDoc]
+
+- loc: +34 rpc/jsonrpc/client/decode.go
+  type: TM
+  uses:
+    std: ['interface{}']
+
+- loc: +80 rpc/jsonrpc/client/decode.go
+  type: TM
+  uses:
+    std: ['interface{}']
+
+- loc: +175 rpc/jsonrpc/server/http_json_handler.go
+  type: TM
+  uses:
+    std: ['interface{}']
+
+- loc: +203 rpc/jsonrpc/server/http_json_handler.go
+  type: TM
+  uses:
+    std: ['interface{}']
+
+- loc: +137 rpc/jsonrpc/server/http_uri_handler.go
+  type: TM
+  uses:
+    std: ['interface{}']
+
+- loc: +218 rpc/jsonrpc/server/http_uri_handler.go
+  type: TM
+  uses:
+    std: ['interface{}']
+
+- loc: +59 scripts/json2wal/main.go
+  type: TM
+  uses:
+    ref: [TimedWALMessage]
+
+- loc: +242 test/e2e/runner/evidence.go
+  type: TM
+  uses:
+    ref: [FilePVKey]
+
+- loc: +114 types/genesis.go
+  type: TM
+  uses:
+    ref: [GenesisDoc]
+
+- loc: +75 types/node_key.go
+  type: TM
+  uses:
+    ref: [NodeKey]
