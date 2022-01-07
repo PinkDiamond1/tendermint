@@ -211,6 +211,127 @@
           "string"
         ]
       }
+    },
+    {
+      "loc": "+256 internal/consensus/state.go",
+      "type": "TM",
+      "fix": "https://github.com/tendermint/tendermint/pull/7534",
+      "uses": {
+        "RoundState": "https://github.com/tendermint/tendermint/blob/master/internal/consensus/types/round_state.go#L67",
+        "std": [
+          "int64",
+          "int32",
+          "uint8",
+          "time.Time",
+          "bool",
+          "int64"
+        ],
+        "ValidatorSet": "https://github.com/tendermint/tendermint/blob/master/types/validator_set.go#L51",
+        "Validator": "https://github.com/tendermint/tendermint/blob/master/types/validator.go#L17",
+        "ref": [
+          "PubKey",
+          "HexBytes"
+        ]
+      }
+    },
+    {
+      "loc": "+263 internal/consensus/state.go",
+      "type": "TM",
+      "fix": "https://github.com/tendermint/tendermint/pull/7534",
+      "uses": {
+        "RoundStateSimple": "https://github.com/tendermint/tendermint/blob/master/internal/consensus/types/round_state.go#L108",
+        "std": [
+          "string",
+          "time.Time",
+          "json.RawMessage",
+          "int32"
+        ],
+        "ref": [
+          "HexBytes"
+        ],
+        "ValidatorInfo": "https://github.com/tendermint/tendermint/blob/master/types/events.go#L149"
+      }
+    },
+    {
+      "loc": "+240 internal/consensus/types/height_vote_set.go",
+      "type": "TM",
+      "fix": "https://github.com/tendermint/tendermint/pull/7534",
+      "uses": {
+        "roundVotes": "https://github.com/tendermint/tendermint/blob/master/internal/consensus/types/height_vote_set.go#L260",
+        "std": [
+          "int32",
+          "string"
+        ]
+      }
+    },
+    {
+      "loc": "+131 privval/file.go",
+      "type": "TM",
+      "fix": "https://github.com/tendermint/tendermint/pull/7534",
+      "uses": {
+        "ref": [
+          "FilePVLastSignState"
+        ]
+      }
+    },
+    {
+      "loc": "+218 privval/file.go",
+      "type": "TM",
+      "fix": "https://github.com/tendermint/tendermint/pull/7534",
+      "uses": {
+        "ref": [
+          "FilePVLastSignState"
+        ]
+      }
+    },
+    {
+      "loc": "+108 privval/file_test.go",
+      "type": "TM",
+      "fix": "https://github.com/tendermint/tendermint/pull/7534",
+      "useS": {
+        "ref": [
+          "FilePVLastSignState"
+        ]
+      }
+    },
+    {
+      "loc": "+117 privval/file_test.go",
+      "type": "TM",
+      "fix": "https://github.com/tendermint/tendermint/pull/7534",
+      "uses": {
+        "ref": [
+          "FilePVLastSignState"
+        ]
+      }
+    },
+    {
+      "loc": "+368 types/part_set.go",
+      "type": "TM",
+      "fix": "https://github.com/tendermint/tendermint/pull/7534",
+      "uses": {
+        "std": [
+          "string"
+        ],
+        "ref": [
+          "BitArray"
+        ]
+      }
+    },
+    {
+      "loc": "+498 types/vote_set.go",
+      "type": "TM",
+      "fix": "https://github.com/tendermint/tendermint/pull/7534",
+      "uses": {
+        "VoteSetJSON": "https://github.com/tendermint/tendermint/blob/master/types/vote_set.go#L508",
+        "std": [
+          "string"
+        ],
+        "BlockID": "https://github.com/tendermint/tendermint/blob/master/types/block.go#L1173",
+        "ref": [
+          "HexBytes",
+          "PartSetHeader"
+        ]
+      }
     }
   ],
   "tmjson.Marshal": [
@@ -277,55 +398,6 @@
       }
     },
     {
-      "loc": "+256 internal/consensus/state.go",
-      "type": "TM",
-      "uses": {
-        "RoundState": "https://github.com/tendermint/tendermint/blob/master/internal/consensus/types/round_state.go#L67",
-        "std": [
-          "int64",
-          "int32",
-          "uint8",
-          "time.Time",
-          "bool",
-          "int64"
-        ],
-        "ValidatorSet": "https://github.com/tendermint/tendermint/blob/master/types/validator_set.go#L51",
-        "Validator": "https://github.com/tendermint/tendermint/blob/master/types/validator.go#L17",
-        "ref": [
-          "PubKey",
-          "HexBytes"
-        ]
-      }
-    },
-    {
-      "loc": "+263 internal/consensus/state.go",
-      "type": "TM",
-      "uses": {
-        "RoundStateSimple": "https://github.com/tendermint/tendermint/blob/master/internal/consensus/types/round_state.go#L108",
-        "std": [
-          "string",
-          "time.Time",
-          "json.RawMessage",
-          "int32"
-        ],
-        "ref": [
-          "HexBytes"
-        ],
-        "ValidatorInfo": "https://github.com/tendermint/tendermint/blob/master/types/events.go#L149"
-      }
-    },
-    {
-      "loc": "+240 internal/consensus/types/height_vote_set.go",
-      "type": "TM",
-      "uses": {
-        "roundVotes": "https://github.com/tendermint/tendermint/blob/master/internal/consensus/types/height_vote_set.go#L260",
-        "std": [
-          "int32",
-          "string"
-        ]
-      }
-    },
-    {
       "loc": "+154 internal/rpc/core/env.go",
       "type": "TM",
       "uses": {
@@ -346,15 +418,6 @@
         "EvidenceParams": "https://github.com/tendermint/tendermint/blob/master/types/params.go#L62",
         "ValidatorParams": "https://github.com/tendermint/tendermint/blob/master/types/params.go#L70",
         "VersionParams": "https://github.com/tendermint/tendermint/blob/master/types/params.go#L74"
-      }
-    },
-    {
-      "loc": "+117 privval/file_test.go",
-      "type": "TM",
-      "uses": {
-        "ref": [
-          "FilePVLastSignState"
-        ]
       }
     },
     {
@@ -439,33 +502,6 @@
           "NodeKey"
         ]
       }
-    },
-    {
-      "loc": "+368 types/part_set.go",
-      "type": "TM",
-      "uses": {
-        "std": [
-          "string"
-        ],
-        "ref": [
-          "BitArray"
-        ]
-      }
-    },
-    {
-      "loc": "+498 types/vote_set.go",
-      "type": "TM",
-      "uses": {
-        "VoteSetJSON": "https://github.com/tendermint/tendermint/blob/master/types/vote_set.go#L508",
-        "std": [
-          "string"
-        ],
-        "BlockID": "https://github.com/tendermint/tendermint/blob/master/types/block.go#L1173",
-        "ref": [
-          "HexBytes",
-          "PartSetHeader"
-        ]
-      }
     }
   ],
   "json.MarshalIndent": [
@@ -525,15 +561,6 @@
       "uses": {
         "ref": [
           "FilePVKey"
-        ]
-      }
-    },
-    {
-      "loc": "+131 privval/file.go",
-      "type": "TM",
-      "uses": {
-        "ref": [
-          "FilePVLastSignState"
         ]
       }
     },
@@ -1068,24 +1095,6 @@
       "uses": {
         "ref": [
           "FilePVKey"
-        ]
-      }
-    },
-    {
-      "loc": "+218 privval/file.go",
-      "type": "TM",
-      "uses": {
-        "ref": [
-          "FilePVLastSignState"
-        ]
-      }
-    },
-    {
-      "loc": "+108 privval/file_test.go",
-      "type": "TM",
-      "useS": {
-        "ref": [
-          "FilePVLastSignState"
         ]
       }
     },
